@@ -1,0 +1,91 @@
+@import "base/_base.scss";
+@import "helpers/_mixins.scss";
+@import "helpers/_variables.scss";
+@import "layout/_footer.scss";
+@import "layout/_header.scss";
+
+*{
+	font-family: $title_font;
+	font-weight: bold;
+	text-align: center;
+}
+header{
+	.navbar-inverse{
+		.navbar-nav{
+			li{
+				a{
+					font-size: 28px;
+					letter-spacing: 2px;
+					&:hover{
+						background-color: transparent;
+						color: #08F0B0;
+					}
+					&:focus{
+						background: transparent;
+						color: #08F0B0; 
+					}
+				}
+			}
+		}
+	}
+}
+aside{
+	z-index:99;
+  	position:absolute;
+  	top:0;
+  	left:0;
+  	bottom:0;
+  	right:0;
+    background-image: url(../image/fondo.jpg);
+    background-attachment: fixed;
+    width: 100%;
+  	.overlay{
+		background-color: rgba(0, 0, 0, 0.50);
+		height: 100%;
+  	}
+  	#changingword{
+		color: #08F0B0;
+	}
+	.quote{
+		padding-top: 19%;
+		.name{
+			width: 80%;
+  			margin: auto;
+  			text-align: center;
+  			perspective: 800px;
+  			min-width: 320px;
+			span{
+	  			display: inline-block;
+  				font-size: 13em;
+  				transform-origin: 50% 70%;
+  				color: #d6d3b0;
+  				text-shadow:  5px -1px 4px rgba(0, 0, 0, 1);
+  				@media screen and (max-width: $break-small) {
+    				font-size: 4em;
+    				padding-top: 30%;
+				}
+  				&:nth-child(1) {
+  					animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) .2s both;
+  				}	
+			}
+		}
+		.intro{
+			font-family: $title_font !important;
+			font-size: 6em;
+			margin-top: 0;
+			color: #d6d3b0;
+			font-weight: bold;
+			@media screen and (max-width: $break-small) {
+    			font-size: 2em;
+			}
+		}
+	}
+}
+@keyframes flipUp {
+  from {
+    transform: rotateX(90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
